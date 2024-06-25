@@ -3,8 +3,8 @@ document.addEventListener("DOMContentLoaded", function() {
     if (container) {
         const iframe = document.createElement("iframe");
         iframe.src = "https://mohamedadel397.github.io/iframe_integration/iframe.html"; // The URL of the iframe content
-        iframe.width = "100%";
-        iframe.height = "400px"; // Adjust the height as needed
+        iframe.width = container.getAttribute('data-iframe-width') || "100%";
+        iframe.height = container.getAttribute('data-iframe-height') || "400px";
         iframe.style.border = "none";
         container.appendChild(iframe);
     }
