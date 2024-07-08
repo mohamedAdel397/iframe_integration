@@ -242,6 +242,21 @@
 </div>
 
 <script>
+
+    function postIframeHeight() {
+        const height = document.body.scrollHeight;
+        window.parent.postMessage({ type: 'resizeIframe', height: height }, '*');
+    }
+
+    document.addEventListener('DOMContentLoaded', function () {
+        postIframeHeight();
+
+        // Re-post height on any form interactions
+        const inputs = document.querySelectorAll('input, select');
+        inputs.forEach(input => {
+            input.addEventListener('input', postIframeHeight);
+        });
+    });
     document.addEventListener('DOMContentLoaded', function () {
         const cardNumberInput = document.getElementById('cardNumber');
         const cardNumberBox = document.querySelector('.card-number-box');
