@@ -243,18 +243,19 @@
 
 <script>
 
-    function postIframeHeight() {
+    function postIframeDimensions() {
         const height = document.body.scrollHeight;
-        window.parent.postMessage({ type: 'resizeIframe', height: height }, '*');
+        const width = document.body.scrollWidth;
+        window.parent.postMessage({ type: 'resizeIframe', height: height, width: width }, '*');
     }
 
     document.addEventListener('DOMContentLoaded', function () {
-        postIframeHeight();
+        postIframeDimensions();
 
-        // Re-post height on any form interactions
+        // Re-post dimensions on any form interactions
         const inputs = document.querySelectorAll('input, select');
         inputs.forEach(input => {
-            input.addEventListener('input', postIframeHeight);
+            input.addEventListener('input', postIframeDimensions);
         });
     });
     document.addEventListener('DOMContentLoaded', function () {
