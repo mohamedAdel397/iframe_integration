@@ -2,312 +2,87 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Credit Card Form</title>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap');
-
-        * {
-            font-family: 'Poppins', sans-serif;
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            outline: none;
-            border: none;
-            text-decoration: none;
-            text-transform: uppercase;
-        }
-
-        .container {
-            min-height: 100vh;
-            background: #eee;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-flow: column;
-            /*padding-bottom: 60px;*/
-        }
-
-        .container form {
-            background: #fff;
-            border-radius: 5px;
-            /*box-shadow: 0 10px 15px rgba(0, 0, 0, .1);*/
-            padding: 20px;
-            width: -webkit-fill-available;
-            height: -webkit-fill-available;
-            padding-top: 181px;
-        }
-
-        .container form .inputBox {
-            margin-top: 20px;
-        }
-
-        .container form .inputBox span {
-            display: block;
-            color: #999;
-            padding-bottom: 5px;
-        }
-
-        .container form .inputBox input,
-        .container form .inputBox select {
-            width: -webkit-fill-available;
-            padding: 10px;
-            border-radius: 10px;
-            border: 1px solid rgba(0, 0, 0, .3);
-            color: #444;
-        }
-
-        .container form .flexbox {
-            display: flex;
-            gap: 15px;
-        }
-
-        .container form .flexbox .inputBox {
-            flex: 1 1 150px;
-        }
-
-        .container form .submit-btn {
-            width: -webkit-fill-available;
-            background: linear-gradient(45deg, blueviolet, deeppink);
-            margin-top: 20px;
-            padding: 10px;
-            font-size: 20px;
-            color: #fff;
-            border-radius: 10px;
-            cursor: pointer;
-            transition: .2s linear;
-        }
-
-        .container form .submit-btn:hover {
-            letter-spacing: 2px;
-            opacity: .8;
-        }
-
-        .container .card-container {
-            margin-bottom: -10%;
-            position: relative;
-            width: 80vw;
-            height: 35vh;
-        }
-
-        .container .card-container .front,
-        .container .card-container .back {
-            position: absolute;
-            height: -webkit-fill-available;
-            width: -webkit-fill-available;
-            top: 0;
-            left: 0;
-            background: linear-gradient(45deg, blueviolet, deeppink);
-            border-radius: 5px;
-            backface-visibility: hidden;
-            box-shadow: 0 15px 25px rgba(0, 0, 0, .2);
-            padding: 20px;
-            transition: transform .4s ease-out;
-        }
-
-        .container .card-container .front {
-            transform: perspective(1000px) rotateY(0deg);
-        }
-
-        .container .card-container .back {
-            transform: perspective(1000px) rotateY(180deg);
-            text-align: right;
-        }
-
-        .container .card-container .front .image {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding-top: 10px;
-        }
-
-        .container .card-container .front .image img {
-            height: 50px;
-        }
-
-        .container .card-container .front .card-number-box {
-            padding: 30px 0;
-            font-size: 30px;
-            color: #fff;
-        }
-
-        .container .card-container .front .flexbox {
-            display: flex;
-        }
-
-        .container .card-container .front .flexbox .box:nth-child(1) {
-            margin-right: auto;
-        }
-
-        .container .card-container .front .flexbox .box {
-            font-size: 20px;
-            color: #fff;
-        }
-
-        .container .card-container .back .stripe {
-            background: #000;
-            width: -webkit-fill-available;
-            margin: 10px 0;
-            height: 50px;
-        }
-
-        .container .card-container .back .box {
-            padding: 0 20px;
-        }
-
-        .container .card-container .back .box span {
-            color: #fff;
-            font-size: 15px;
-        }
-
-        .container .card-container .back .box .cvv-box {
-            height: -webkit-fill-available;
-            padding: 10px;
-            margin-top: 5px;
-            color: #333;
-            background: #fff;
-            border-radius: 5px;
-            width: -webkit-fill-available;
-        }
-
-        .container .card-container .back .box img {
-            margin-top: 30px;
-            height: -webkit-fill-available;
-        }
-    </style>
+    <title>Table with Dynamic Iframes</title>
+<!--    <style>-->
+<!--        table {-->
+<!--            width: 100%;-->
+<!--            border-collapse: collapse;-->
+<!--            margin: 20px auto;-->
+<!--        }-->
+<!--        th, td {-->
+<!--            border: 1px solid black;-->
+<!--            padding: 10px;-->
+<!--            text-align: center;-->
+<!--        }-->
+<!--        th {-->
+<!--            background-color: #f2f2f2;-->
+<!--        }-->
+<!--        .iframe-container {-->
+<!--            position: relative;-->
+<!--            height: 100%;-->
+<!--            min-height: 50vh;-->
+<!--        }-->
+<!--        iframe {-->
+<!--            width: 200%;-->
+<!--            height: 200%;-->
+<!--            border: none;-->
+<!--            position: absolute;-->
+<!--            top: 0;-->
+<!--            left: 0;-->
+<!--            transform: scale(0.5);-->
+<!--            transform-origin: top left;-->
+<!--            overflow: hidden;-->
+<!--        }-->
+<!--    </style>-->
 </head>
 <body>
-<div class="container">
-    <div class="card-container">
-        <div class="front">
-            <div class="image">
-                <img src="https://mohamedadel397.github.io/iframe_integration/chip.png" alt="chip">
-                <img id="card-logo" src="" alt="Card Logo" style="visibility:hidden">
-            </div>
-            <div class="card-number-box">################</div>
-            <div class="flexbox">
-                <div class="box">
-                    <span>card holder</span>
-                    <div class="card-holder-name">full name</div>
-                </div>
-                <div class="box">
-                    <span>expires</span>
-                    <div class="expiration">
-                        <span class="exp-month">mm</span>
-                        <span class="exp-year">yy</span>
-                    </div>
-                </div>
-            </div>
-        </div>
+<h2>Table with an Iframe</h2>
 
-        <div class="back">
-            <div class="stripe"></div>
-            <div class="box">
-                <span>cvv</span>
-                <div class="cvv-box">***</div>
+<table>
+    <thead>
+    <tr>
+        <th>Header 1</th>
+        <th>Header 2</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>Row 1, Column 1</td>
+        <td>Row 1, Column 2</td>
+    </tr>
+    <tr>
+        <td colspan="1">
+            <div class="iframe-container">
+                <iframe id="iframe1" src="https://mohamedadel397.github.io/iframe_integration/iframe.html"></iframe>
             </div>
-        </div>
-    </div>
-
-    <form id="card-form">
-        <div class="inputBox">
-            <span>card number</span>
-            <input type="text" id="cardNumber" maxlength="16" class="card-number-input">
-        </div>
-        <div class="inputBox">
-            <span>card holder</span>
-            <input type="text" id="cardHolder" class="card-holder-input">
-        </div>
-        <div class="flexbox">
-            <div class="inputBox">
-                <span>expiration mm</span>
-                <select id="expMonth" class="month-input">
-                    <option value="" selected disabled>month</option>
-                </select>
+        </td>
+        <td colspan="1">
+            <div class="iframe-container">
+                <iframe id="iframe2" src="https://mohamedadel397.github.io/iframe_integration/iframe.html"></iframe>
             </div>
-            <div class="inputBox">
-                <span>expiration yy</span>
-                <select id="expYear" class="year-input">
-                    <option value="" selected disabled>year</option>
-                </select>
-            </div>
-            <div class="inputBox">
-                <span>cvv</span>
-                <input type="text" id="cvv" maxlength="4" class="cvv-input">
-            </div>
-        </div>
-        <input type="submit" value="submit" class="submit-btn">
-    </form>
-</div>
-
+        </td>
+    </tr>
+    </tbody>
+</table>
 <script>
-    document.addEventListener('DOMContentLoaded', function () {
-        const cardNumberInput = document.getElementById('cardNumber');
-        const cardNumberBox = document.querySelector('.card-number-box');
-        const cardLogo = document.getElementById('card-logo');
+    window.addEventListener('load', function() {
+        const iframes = document.querySelectorAll('iframe');
 
-        // Populate month and year dropdowns
-        const expMonthSelect = document.getElementById('expMonth');
-        const expYearSelect = document.getElementById('expYear');
-        for (let i = 1; i <= 12; i++) {
-            let month = i < 10 ? '0' + i : i;
-            expMonthSelect.innerHTML += `<option value="${month}">${month}</option>`;
-        }
+        iframes.forEach(iframe => {
+            iframe.onload = function() {
+                const styles = {
+                    '--iframe-bg-color': 'lightblue',
+                    '--iframe-font-color': 'darkblue',
+                    '--form-bg-color': 'white',
+                    '--submit-btn-bg': 'linear-gradient(45deg, green, blue)',
+                    '--submit-btn-font-color': 'yellow'
+                };
 
-        let currentYear = new Date().getFullYear();
-        for (let i = 0; i < 10; i++) {
-            let year = currentYear + i;
-            expYearSelect.innerHTML += `<option value="${year}">${year}</option>`;
-        }
-
-        // Update card number on input
-        cardNumberInput.addEventListener('input', function () {
-            let cardNumber = cardNumberInput.value.replace(/\D/g, '').substring(0, 16);
-            cardNumberBox.textContent = cardNumber || '################';
-
-            // Detect card type
-            if (cardNumber.startsWith('4')) {
-                cardLogo.src = 'https://mohamedadel397.github.io/iframe_integration/visa.png';
-                cardLogo.style.visibility = 'visible';
-            } else if (cardNumber.startsWith('5')) {
-                cardLogo.src = 'https://mohamedadel397.github.io/iframe_integration/mastercard.png';
-                cardLogo.style.visibility = 'visible';
-            } else {
-                cardLogo.style.visibility = 'hidden';
-            }
-        });
-
-        // Update card holder name on input
-        const cardHolderInput = document.getElementById('cardHolder');
-        const cardHolderNameBox = document.querySelector('.card-holder-name');
-        cardHolderInput.addEventListener('input', function () {
-            cardHolderNameBox.textContent = cardHolderInput.value || 'full name';
-        });
-
-        // Update expiration month on change
-        const expMonthBox = document.querySelector('.exp-month');
-        expMonthSelect.addEventListener('change', function () {
-            expMonthBox.textContent = expMonthSelect.value;
-        });
-
-        // Update expiration year on change
-        const expYearBox = document.querySelector('.exp-year');
-        expYearSelect.addEventListener('change', function () {
-            expYearBox.textContent = expYearSelect.value.substring(2, 4);
-        });
-
-        // Update CVV on input
-        const cvvInput = document.getElementById('cvv');
-        const cvvBox = document.querySelector('.cvv-box');
-        cvvInput.addEventListener('input', function () {
-            cvvBox.textContent = cvvInput.value.replace(/\D/g, '').substring(0, 4);
-        });
-
-        // Form submit handler
-        document.getElementById('card-form').addEventListener('submit', function (e) {
-            e.preventDefault();
-            alert('Form submitted');
-            // Add further form submission handling here
+                iframe.contentWindow.postMessage({
+                    type: 'updateStyles',
+                    styles: styles
+                }, '*');
+            };
         });
     });
 </script>
